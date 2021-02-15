@@ -1,0 +1,17 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.accent1 {
+    background-color: #41454B;
+}
+
+.bg-secondary {
+    background-color: #F6F7F9;;
+}
+
+#header {
+    background-image: url('./assets/bg_banner.svg');
+    background-repeat: no-repeat;
+}
