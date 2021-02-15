@@ -4,6 +4,7 @@ var app = new Vue({
         profile: {
             name: 'Syamsul Amin'
         },
+        isOpen: false,
         message: 'Ok'
     },
     

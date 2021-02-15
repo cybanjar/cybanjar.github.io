@@ -11,26 +11,56 @@
 </head>
 <body>
     <div id="app">
+        
         <section class="bg-secondary">
-            <div class="flex ">
-                <div class="flex-none w-16 h-16 ">
-                    Scroll
+            <div class="flex navbar justify-between bg-green-500 rounded-xl m-4">
+                <div class="p-4 logo">
+                    <img src="./assets/logo.png">
                 </div>
-                <div class="flex-grow ">
-                    <h4 class="text-2xl text-uppercase font-bold text-green-500">I'm Designer</h4>
-                    <h1>Ubaidillah Muhammad</h1>
-                    <p>Hi guys, I'm experience and an understanding of the web design and mobile design. Thank you for consideration</p>
-                    <button type="menu">What we do</button>
-                </div>
-                <div class="flex-grow">
-                    <img src="./assets/photo.png">
-                </div>
-                <div class="flex-none w-16 h-16 ">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-dribbble"></i>
+                <div class="flex flex-col lg:flex-row justify-center">
+                    <a href="#" class=" px-4 py-5">Home</a>
+                    <a href="#" class=" px-4 py-5">About</a>
+                    <a href="#" class=" px-4 py-5">We Do</a>
+                    <a href="#" class=" px-4 py-5">Portfolio</a>
+                    <a href="#" class=" px-4 py-5">We Use</a>
+                    <a href="#" class=" px-4 py-5">FAQ</a>
+                    <a href="#" class=" px-4 py-5">Contact</a>
+                </div>                
+                <div class="toggle p-4">
+                     <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                        <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /> -->
+                    </svg>
                 </div>
             </div>
+
+            <div class="flex">
+                <div class="flex items-end pl-5">
+                    <div class="py-3 rounded-xl px-4 m-2 bg-red-100 mb-6 text-red-700 font-bold">                                                
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="flex-grow mt-8">
+                    <h4 class="text-2xl uppercase font-bold text-green-500">I'm Designer</h4>
+                    <h1 class="text-5xl font-bold text-gray-500  my-8">Ubaidillah Muhammad</h1>
+                    <p class="my-3 text-gray-400">Hi guys, I'm experience and an understanding of the web design and mobile design. Thank you for consideration</p>
+                    <button type="submit" class="py-3 px-16 rounded-full bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 tracking-wider shadow-xl font-bold">Say Hello!</button>
+                    
+                </div>
+                <div class="flex-grow">
+                    <img class="w-96" src="./assets/photo.png">
+                </div>
+                <div class="flex items-end flex-col">
+                    <i class="fab fa-facebook-f color-facebook px-4 py-2 m-3"></i>
+                    <i class="fab fa-twitter color-twitter px-4 py-2 m-3"></i>
+                    <i class="fab fa-dribbble color-dribbble px-4 py-2 m-3"></i>
+                </div>
+            </div>
+
+        </section>
+
+        <section>
+
         </section>
     </div>
 

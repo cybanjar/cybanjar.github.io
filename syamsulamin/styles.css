@@ -7,8 +7,28 @@ html, body {
     background-color: #41454B;
 }
 
+.accent {
+    color: #49C2C7;
+}
+
 .bg-secondary {
     background-color: #F6F7F9;;
+}
+
+.color-twitter {
+    color: #55ACEE;
+}
+
+.color-facebook {
+    color: #395185;
+}
+
+.color-dribbble {
+    color: #FF4081;
+}
+
+.navbar a {
+    color: #fff;
 }
 
 #header {
