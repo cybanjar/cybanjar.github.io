@@ -1,69 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://kit.fontawesome.com/163ae98d1f.js" crossorigin="anonymous"></script>
-    <title>Syamsul Amin</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
+        type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.min.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <div id="app">
-        
-        <section class="bg-secondary">
-            <div class="flex navbar justify-between bg-green-500 rounded-xl m-4">
-                <div class="p-4 logo">
-                    <img src="./assets/logo.png">
-                </div>
-                <div class="flex flex-col lg:flex-row justify-center">
-                    <a href="#" class=" px-4 py-5">Home</a>
-                    <a href="#" class=" px-4 py-5">About</a>
-                    <a href="#" class=" px-4 py-5">We Do</a>
-                    <a href="#" class=" px-4 py-5">Portfolio</a>
-                    <a href="#" class=" px-4 py-5">We Use</a>
-                    <a href="#" class=" px-4 py-5">FAQ</a>
-                    <a href="#" class=" px-4 py-5">Contact</a>
-                </div>                
-                <div class="toggle p-4">
-                     <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
-                        <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /> -->
-                    </svg>
-                </div>
-            </div>
-
-            <div class="flex">
-                <div class="flex items-end pl-5">
-                    <div class="py-3 rounded-xl px-4 m-2 bg-red-100 mb-6 text-red-700 font-bold">                                                
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="flex-grow mt-8">
-                    <h4 class="text-2xl uppercase font-bold text-green-500">I'm Designer</h4>
-                    <h1 class="text-5xl font-bold text-gray-500  my-8">Ubaidillah Muhammad</h1>
-                    <p class="my-3 text-gray-400">Hi guys, I'm experience and an understanding of the web design and mobile design. Thank you for consideration</p>
-                    <button type="submit" class="py-3 px-16 rounded-full bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 tracking-wider shadow-xl font-bold">Say Hello!</button>
-                    
-                </div>
-                <div class="flex-grow">
-                    <img class="w-96" src="./assets/photo.png">
-                </div>
-                <div class="flex items-end flex-col">
-                    <i class="fab fa-facebook-f color-facebook px-4 py-2 m-3"></i>
-                    <i class="fab fa-twitter color-twitter px-4 py-2 m-3"></i>
-                    <i class="fab fa-dribbble color-dribbble px-4 py-2 m-3"></i>
-                </div>
-            </div>
-
-        </section>
-
-        <section>
-
-        </section>
+    <div id="q-app">
+        <q-btn outline color="primary" icon="warning" label="Notify" @click="notify" class="q-ma-md"> </q-btn>
     </div>
 
-    <script src="apps.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.umd.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#q-app',
+            data: function () {
+                return {}
+            },
+            methods: {
+                notify: function () {
+                    this.$q.notify('Running on Quasar v' + this.$q.version)
+                }
+            },
+
+        });
+    </script>
 </body>
+
 </html>
