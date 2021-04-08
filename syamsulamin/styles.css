@@ -7,7 +7,7 @@ html, body {
     background-color: #41454B;
 }
 
-.accent {
+.primary {
     color: #49C2C7;
 }
 
@@ -27,11 +27,11 @@ html, body {
     color: #FF4081;
 }
 
-.navbar a {
-    color: #fff;
-}
-
 #header {
     background-image: url('./assets/bg_banner.svg');
     background-repeat: no-repeat;
 }
+
+body.body--dark {
+    background: #000;
+}   

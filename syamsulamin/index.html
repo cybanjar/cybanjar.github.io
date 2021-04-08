@@ -7,30 +7,120 @@
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="q-app">
-        <q-btn outline color="primary" icon="warning" label="Notify" @click="notify" class="q-ma-md"> </q-btn>
+        <template>
+            <q-layout view="hHh lpR fFf">
+
+                <q-header class="bg-white text-dark">
+                    <q-toolbar class="primary">
+                        <q-toolbar-title>
+                            <q-avatar>
+                                <img src="https://avatars.githubusercontent.com/u/35210614?v=4">
+                            </q-avatar>
+                            <span class="text-center">Syamsul Amin</span>
+                        </q-toolbar-title>
+                        <q-btn flat round dense icon="apps"></q-btn>
+
+                    </q-toolbar>
+                </q-header>
+
+                <q-page-container>
+                    <q-page class="q-pa-md">
+                        <p v-for="n in 15" :key="n">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+                            adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos
+                            numquam rerum delectus commodi perferendis voluptate?
+                        </p>
+                    </q-page>
+                    <!-- <router-view /> -->
+
+
+                </q-page-container>
+
+                <q-footer class="bg-grey-8 text-white">
+                    <q-toolbar>
+                        <q-toolbar-title>
+                            <q-avatar>
+                                <img src="https://avatars.githubusercontent.com/u/35210614?v=4">
+                            </q-avatar>
+                            <q-btn unelevated color="primary" icon="warning" label="Notify" @click="notify"
+                                class="q-ma-md">
+                            </q-btn>
+                            Quasar {{ version }}
+                        </q-toolbar-title>
+                    </q-toolbar>
+                </q-footer>
+                <!-- <q-page-container>
+                    <q-page class="q-pa-md">
+                        <p v-for="n in 15" :key="n">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+                            adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos
+                            numquam rerum delectus commodi perferendis voluptate?
+                        </p>
+                    </q-page>
+                </q-page-container> -->
+
+            </q-layout>
+        </template>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.umd.min.js"></script>
+    <script>
+        // optional
+        window.quasarConfig = {
+            brand: { // this will NOT work on IE 11
+                primary: '#0dc7cf',
+                // ... or all other brand colors
+            },
+            // notify: {...}, // default set of options for Notify Quasar plugin
+            // loading: {...}, // default set of options for Loading Quasar plugin
+            // loadingBar: { ... }, // settings for LoadingBar Quasar plugin
+            // ..and many more
+        }
+    </script>
 
     <script>
         new Vue({
             el: '#q-app',
             data: function () {
-                return {}
+                return {
+                    version: Quasar.version,
+                    brand: {
+                        primary: '#0dc7cf'
+                    },
+                }
             },
             methods: {
                 notify: function () {
-                    this.$q.notify('Running on Quasar v' + this.$q.version)
+                    this.$q.notify('Running on Quasar v' + this.$q.version);
+                    console.log(this.$q.dark.mode)
                 }
             },
+            mounted: function () {
+                this.$nextTick(function () {
+                    console.log('mounted!')
+                })
+            }
 
         });
     </script>
+
+    <script>
+        // optional
+        window.quasarConfig = {
+            brand: { // this will NOT work on IE 11
+                primary: '#0DC7CF',
+                // ... or all other brand colors
+            },
+            // ..and many more
+        }
+    </script>
+
 </body>
 
 </html>
