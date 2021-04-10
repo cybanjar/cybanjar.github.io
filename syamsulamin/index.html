@@ -1,126 +1,268 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
-        type="text/css">
-    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <title>.:: Profile | Syamsul Amin ::.</title>
 </head>
 
-<body>
-    <div id="q-app">
-        <template>
-            <q-layout view="hHh lpR fFf">
+<body class="text-gray-800 antialiased">
+    <nav id="top-0" class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+            <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+                <a class="text-md font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white"
+                    href="#top-0">
+                    My Profile
+                </a>
+                <button
+                    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                    type="button" onclick="toggleNavbar('example-collapse-navbar')">
+                    <i class="text-white fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="lg:flex flex-grow rounded-md items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+                id="example-collapse-navbar">
+                <!-- <ul class="flex flex-col lg:flex-row list-none mr-auto">
+                    <li class="flex items-center">
+                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/profile"><i
+                                class="lg:text-gray-300 text-gray-500 far fa-file-alt text-lg leading-lg mr-2"></i>
+                            Docs</a>
+                    </li>
+                </ul> -->
+                <!-- Responsive -->
+                <ul class="flex flex-col  rounded-xl lg:flex-row list-none lg:ml-auto">
+                    <li class="flex items-center">
+                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            href="https://www.linkedin.com/in/syamsul-amin/">
+                            <i class="lg:text-gray-300 text-gray-500 text-linkedin fab fa-linkedin-in text-lg leading-lg "></i>
+                            <span class="lg:hidden inline-block ml-2">Linked In</span>
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            href="https://www.instagram.com/syamsulamin1791/">
+                            <i class="lg:text-gray-300 text-instagram text-gray-500 fab fa-instagram text-lg leading-lg "></i>
+                            <span class="lg:hidden inline-block ml-2">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            href="https://github.com/cybanjar/"><i
+                                class="lg:text-gray-300 text-gray-500 text-github fab fa-github text-lg leading-lg "></i><span
+                                class="lg:hidden inline-block ml-2">Github</span></a>
+                    </li>
+                    <li class="flex items-center">
+                        <button
+                            class="bg-primary text-white active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+                            type="button" style="transition: all 0.15s ease 0s;">
+                            <i class="fas fa-arrow-alt-circle-down"></i> Hire me
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="profile-page">
+        <section class="relative block" style="height: 500px;">
+            <div class="absolute top-0 w-full h-full bg-center bg-cover"
+                style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'>
+                <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+            </div>
+            <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+                style="height: 70px;">
+                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                    <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+        </section>
+        <section class="relative py-16 bg-gray-300">
+            <div class="container mx-auto px-4">
+                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+                    <div class="px-6">
+                        <div class="flex flex-wrap justify-center">
+                            <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                                <div class="relative">
+                                    <img alt="Syamsul Amin" src="./assets/img/amin.jpg"
+                                        class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                                        style="max-width: 150px;" />
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                                <div class="py-6 px-3 mt-32 sm:mt-0">
+                                    <button
+                                        class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                                        type="button" style="transition: all 0.15s ease 0s;">
+                                        <i class="fas fa-comment"></i> WA Chat
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-4/12 px-4 lg:order-1">
+                                <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                                    <div class="mr-4 p-3 text-center">
+                                        <span
+                                            class="text-xl font-bold block uppercase tracking-wide text-gray-700">22</span><span
+                                            class="text-sm text-gray-500">Friends</span>
+                                    </div>
+                                    <div class="mr-4 p-3 text-center">
+                                        <span
+                                            class="text-xl font-bold block uppercase tracking-wide text-gray-700">10</span><span
+                                            class="text-sm text-gray-500">Photos</span>
+                                    </div>
+                                    <div class="lg:mr-4 p-3 text-center">
+                                        <span
+                                            class="text-xl font-bold block uppercase tracking-wide text-gray-700">89</span><span
+                                            class="text-sm text-gray-500">Comments</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-12">
+                            <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+                                Syamsul Amin
+                            </h3>
+                            <div class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
+                                <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
+                                Los Angeles, California
+                            </div>
+                            <div class="mb-2 text-gray-700 mt-10">
+                                <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>Solution Manager - Creative
+                                Tim
+                                Officer
+                            </div>
+                            <div class="mb-2 text-gray-700">
+                                <i class="fas fa-university mr-2 text-lg text-gray-500"></i>University of Computer
+                                Science
+                            </div>
+                        </div>
+                        <div class="mt-10 py-10 border-t border-gray-300 text-center">
+                            <div class="flex flex-wrap justify-center">
+                                <div class="w-full lg:w-9/12 px-4">
+                                    <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                                        An artist of considerable range, Jenna the name taken by
+                                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                                        performs and records all of his own music, giving it a
+                                        warm, intimate feel with a solid groove structure. An
+                                        artist of considerable range.
+                                    </p>
+                                    <a href="#pablo" class="font-normal text-pink-500">Show more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="relative bg-gray-300 pt-8 pb-6">
+        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style="height: 80px;">
+            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+                version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4">
+                    <h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
+                    <h5 class="text-lg mt-0 mb-2 text-gray-700">
+                        Find us on any of these platforms, we respond 1-2 business days.
+                    </h5>
+                    <div class="mt-6">
+                        <button
+                            class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                            type="button">
+                            <i class="flex fab fa-twitter"></i></button><button
+                            class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                            type="button">
+                            <i class="flex fab fa-facebook-square"></i></button><button
+                            class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                            type="button">
+                            <i class="flex fab fa-dribbble"></i></button><button
+                            class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                            type="button">
+                            <i class="flex fab fa-github"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="flex flex-wrap items-top mb-6">
+                        <div class="w-full lg:w-4/12 px-4 ml-auto">
+                            <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://www.creative-tim.com/presentation">About Us</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://blog.creative-tim.com">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://www.github.com/creativetimofficial">Github</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="w-full lg:w-4/12 px-4">
+                            <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other
+                                Resources</span>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT
+                                        License</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://creative-tim.com/terms">Terms &amp; Conditions</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://creative-tim.com/privacy">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="https://creative-tim.com/contact-us">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-400" />
+            <div class="flex flex-wrap items-center md:justify-between justify-center">
+                <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                    <div class="text-sm text-gray-600 font-semibold py-1">
+                        Copyright © 2019 Tailwind Starter Kit by
+                        <a href="https://www.creative-tim.com" class="text-gray-600 hover:text-gray-900">Creative
+                            Tim</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                <q-header class="bg-white text-dark">
-                    <q-toolbar class="primary">
-                        <q-toolbar-title>
-                            <q-avatar>
-                                <img src="https://avatars.githubusercontent.com/u/35210614?v=4">
-                            </q-avatar>
-                            <span class="text-center">Syamsul Amin</span>
-                        </q-toolbar-title>
-                        <q-btn flat round dense icon="apps"></q-btn>
+    <script src="tailwind.config.js"></script>
 
-                    </q-toolbar>
-                </q-header>
-
-                <q-page-container>
-                    <q-page class="q-pa-md">
-                        <p v-for="n in 15" :key="n">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-                            adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos
-                            numquam rerum delectus commodi perferendis voluptate?
-                        </p>
-                    </q-page>
-                    <!-- <router-view /> -->
-
-
-                </q-page-container>
-
-                <q-footer class="bg-grey-8 text-white">
-                    <q-toolbar>
-                        <q-toolbar-title>
-                            <q-avatar>
-                                <img src="https://avatars.githubusercontent.com/u/35210614?v=4">
-                            </q-avatar>
-                            <q-btn unelevated color="primary" icon="warning" label="Notify" @click="notify"
-                                class="q-ma-md">
-                            </q-btn>
-                            Quasar {{ version }}
-                        </q-toolbar-title>
-                    </q-toolbar>
-                </q-footer>
-                <!-- <q-page-container>
-                    <q-page class="q-pa-md">
-                        <p v-for="n in 15" :key="n">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-                            adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos
-                            numquam rerum delectus commodi perferendis voluptate?
-                        </p>
-                    </q-page>
-                </q-page-container> -->
-
-            </q-layout>
-        </template>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@1.15.10/dist/quasar.umd.min.js"></script>
     <script>
-        // optional
-        window.quasarConfig = {
-            brand: { // this will NOT work on IE 11
-                primary: '#0dc7cf',
-                // ... or all other brand colors
-            },
-            // notify: {...}, // default set of options for Notify Quasar plugin
-            // loading: {...}, // default set of options for Loading Quasar plugin
-            // loadingBar: { ... }, // settings for LoadingBar Quasar plugin
-            // ..and many more
+        function toggleNavbar(collapID) {
+            document.getElementById(collapID).classList.toggle("hidden");
+            document.getElementById(collapID).classList.toggle("block");
         }
     </script>
-
-    <script>
-        new Vue({
-            el: '#q-app',
-            data: function () {
-                return {
-                    version: Quasar.version,
-                    brand: {
-                        primary: '#0dc7cf'
-                    },
-                }
-            },
-            methods: {
-                notify: function () {
-                    this.$q.notify('Running on Quasar v' + this.$q.version);
-                    console.log(this.$q.dark.mode)
-                }
-            },
-            mounted: function () {
-                this.$nextTick(function () {
-                    console.log('mounted!')
-                })
-            }
-
-        });
-    </script>
-
-    <script>
-        // optional
-        window.quasarConfig = {
-            brand: { // this will NOT work on IE 11
-                primary: '#0DC7CF',
-                // ... or all other brand colors
-            },
-            // ..and many more
-        }
-    </script>
-
 </body>
 
 </html>

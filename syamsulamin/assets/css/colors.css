@@ -1,0 +1,43 @@
+.text-primary {
+    color: #49C2C7;
+}
+
+.bg-primary {
+ 
+    background-color: #49C2C7;
+}
+.accent1 {
+    background-color: #41454B;
+}
+
+.bg-secondary {
+    background-color: #F6F7F9;;
+}
+
+.bg-twitter {
+    background-color: #55ACEE;
+}
+
+.color-facebook {
+    color: #395185;
+}
+
+.color-twitter {
+    color: #55ACEE;
+}
+
+.color-dribbble {
+    color: #FF4081;
+}
+
+.text-github {
+    color: #2A2F35;
+}
+
+.text-instagram {
+    color: #CF2872;
+}
+
+.text-linkedin {
+    color: #0077B5;
+}
