@@ -41,3 +41,7 @@
 .text-linkedin {
     color: #0077B5;
 }
+
+.border-primary {
+    border: 1px solid #49C2C7;
+}

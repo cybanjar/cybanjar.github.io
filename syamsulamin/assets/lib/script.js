@@ -2,10 +2,7 @@ new Vue({
     el: '#q-app',
     data: function () {
         return {
-            version: Quasar.version,
-            brand: {
-                primary: '#0dc7cf'
-            },
+            name: 'Syamsul Amin'
         }
     },
     methods: {

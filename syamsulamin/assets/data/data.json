@@ -1,0 +1,24 @@
+{
+    "portfolio": [
+        {
+            "id": 1,
+            "user": "freelance",
+            "img": "assets/img/laundry.jpg",
+            "title": "web apps laundry",
+            "description": "freelance",
+            "link": "http://icwn.co.id",
+            "created_at": "2021-04-06T08:03:59.000000Z",
+            "updated_at": "2021-04-06T08:23:37.000000Z"
+        },
+        {
+            "id": 2,
+            "user": "freelance",
+            "img": "assets/img/compro_icwn.jpg",
+            "title": "web apps laundry",
+            "description": "freelance",
+            "link": "http://icwn.co.id",
+            "created_at": "2021-04-06T08:03:59.000000Z",
+            "updated_at": "2021-04-06T08:23:37.000000Z"
+        }
+    ]
+}
