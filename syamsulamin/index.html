@@ -32,9 +32,9 @@
                     id="example-collapse-navbar">
                     <ul class="flex flex-col  rounded-xl lg:flex-row list-none lg:ml-auto">
                         <li class="flex items-center">
-                            <a class="lg:text-white lg:hover:text-gray-300 text-pink-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            <a class="lg:text-white lg:hover:text-gray-300 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                                 href="https://www.dribble.com/cybanjar/">
-                                <i class="lg:text-pink-300 text-gray-800 text-linkedin fab fa-dribbble text-lg leading-lg "></i>
+                                <i class="text-linkedin fab fa-dribbble text-lg leading-lg "></i>
                                 <span class="lg:hidden inline-block ml-2">Dribbble</span>
                             </a>
                         </li>
@@ -104,11 +104,12 @@
                                 </div>
                                 <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                                     <div class="py-6 px-3 mt-32 sm:mt-0">
-                                        <button
-                                            class="bg-primary active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                                        <a href="https://wa.me/6287830120049?text=Hi,%20" target="_blank"
+                                            class="bg-primary active:bg-pink-600 uppercase text-white font-bold hover:shadow-md text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                                             type="button" style="transition: all 0.15s ease 0s;">
-                                            <i class="fas fa-comment mr-2"></i> WA Chat
-                                        </button>
+                                            <i class="fab fa-whatsapp text-white text-xl"></i>
+
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="w-full lg:w-4/12 px-4 lg:order-1">
@@ -238,9 +239,7 @@
                         <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-primary">
-                                <img alt="..."
-                                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80"
-                                    class="w-full align-middle rounded-t-lg" />
+                                <img alt="..." src="./assets/img/team_1.jpg" class="w-full align-middle rounded-t-lg" />
                                 <blockquote class="relative p-8 mb-4">
                                     <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 583 95" class="absolute left-0 w-full block"
@@ -249,12 +248,10 @@
                                         </polygon>
                                     </svg>
                                     <h4 class="text-xl font-bold text-white">
-                                        Top Notch Services
+                                        Best my team
                                     </h4>
                                     <p class="text-md font-light mt-2 text-white">
-                                        The Arctic Ocean freezes every winter and much of the
-                                        sea-ice then thaws every summer, and that process will
-                                        continue whatever happens.
+                                        When stuck I use the team for discussion to solve problems.
                                     </p>
                                 </blockquote>
                             </div>
@@ -273,68 +270,32 @@
                 <div class="container mx-auto px-4">
                     <div class="items-center flex flex-wrap">
                         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-                            <img alt="..." class="max-w-full rounded-lg shadow-lg"
-                                src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" />
+                            <img alt="..." class="max-w-full rounded-lg shadow-lg" src="./assets/img/wisuda.jpg" />
                         </div>
                         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
                             <div class="md:pr-12">
-                                <div
-                                    class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
-                                    <i class="fas fa-graduation-cap text-xl"></i>
-                                </div>
                                 <h3 class="text-3xl font-semibold">Education & Certificate<span
-                                        class="text-pink-600">.</span></h3>
+                                        class="text-primary">.</span></h3>
                                 <p class="mt-4 text-lg leading-relaxed text-gray-600">
                                     The extension comes with three pre-built pages to help you get
                                     started faster. You can change the text and images and you're
                                     good to go.
                                 </p>
-                                <ul class="list-none mt-6">
+                                <ul v-for="(item, index) in dataPrepare" class="list-none mt-6">
                                     <li class="py-2">
                                         <div class="flex items-center">
                                             <div>
                                                 <span
-                                                    class="text-xl font-semibold inline-block py-2 px-4 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
+                                                    class="text-xl font-semibold inline-block py-2 px-4 uppercase rounded-full text-green-600 bg-green-100 mr-3">
                                                     <i class="fas fa-award"></i>
                                                 </span>
                                             </div>
                                             <div>
                                                 <h4 class="text-gray-600">
-                                                    UPNV Jakarta | 2011 - 2015
+                                                    {{ item['edu'] }}
                                                 </h4>
-                                                <div class="text-gray-300">Computer Science</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="py-2">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <span
-                                                    class="text-xl font-semibold inline-block py-2 px-4 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                                                    <i class="fas fa-award"></i>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-gray-600">
-                                                    Webhozz | 2019
-                                                </h4>
-                                                <div class="text-gray-300">Web Development</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="py-2">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <span
-                                                    class="text-xl font-semibold inline-block py-2 px-4 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                                                    <i class="fas fa-award"></i>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-gray-600">
-                                                    Dumet | 2020
-                                                </h4>
-                                                <div class="text-gray-300">Frontend Development</div>
+                                                <div class="text-gray-300">{{ item['jurusan'] }} | {{ item['tahun'] }}
+                                                </div>
                                             </div>
                                         </div>
                                     </li>
@@ -348,13 +309,12 @@
                 <div class="container mx-auto px-4">
                     <div class="flex flex-wrap justify-center text-center mb-24">
                         <div class="w-full lg:w-6/12 px-4">
+                            <p class="font-bold  uppercase leading-relaxed m-4 text-primary">
+                                Portfolio
+                            </p>
                             <h2 class="text-4xl font-semibold">An Eye For Details Makes Our Works Exellent<span
                                     class="text-primary">.</span> </h2>
-                            <p class="text-lg leading-relaxed m-4 text-gray-600">
-                                According to the National Oceanic and Atmospheric
-                                Administration, Ted, Scambos, NSIDClead scentist, puts the
-                                potentially record maximum.
-                            </p>
+
                         </div>
                     </div>
                     <div class="flex flex-wrap">
@@ -387,8 +347,8 @@
                         </div>
                         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
                             <div class="px-6">
-                                <img alt="..." src="./assets/img/compro_icwn.jpg" class="shadow-lg rounded-md max-w-full mx-auto"
-                                    style="max-width: 120px;" />
+                                <img alt="..." src="./assets/img/compro_icwn.jpg"
+                                    class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
                                 <div class="pt-6 text-center">
                                     <h5 class="text-xl font-bold">Web Company Profile</h5>
                                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
@@ -402,13 +362,16 @@
                         </div>
                         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
                             <div class="px-6">
-                                <img alt="..." src="./assets/img/amin.jpg"
+                                <img alt="..." src="./assets/img/self_checkin.jpeg"
                                     class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
                                 <div class="pt-6 text-center">
-                                    <h5 class="text-xl font-bold">Syamsul Amin</h5>
+                                    <h5 class="text-xl font-bold">Self Checkin</h5>
                                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                        Developer
+                                        Web Designer
                                     </p>
+                                    <a target="_blank" href="http://vhp-online.com">
+                                        <div class="text-indigo-400">Link</div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -419,10 +382,6 @@
         <footer class="relative bg-gray-300 pt-8 pb-6">
             <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
                 style="height: 80px;">
-                <!-- <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-                version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-indigo-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
-            </svg> -->
             </div>
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap">
@@ -503,7 +462,8 @@
             el: '#app',
             data() {
                 return {
-                    name: 'syamsul'
+                    name: 'syamsul',
+                    dataPrepare: []
                 }
             },
             methods: {
@@ -514,20 +474,52 @@
             },
             mounted: function () {
                 this.$nextTick(function () {
-                    console.log('mounted!')
-                    async function getUsers() {
-                        let url = './assets/data/data.json';
-                        try {
-                            let res = await fetch(url);
-                            return await res.json();
-                            console.log('kesini');
-                        } catch (error) {
-                            console.log(error);
+
+                    fetch('./assets/data/data.json', {
+                        method: 'GET',
+                        body: JSON.stringify(),
+                        headers: {
+                            'content-type': 'application/json'
                         }
-                    }
-                    getUsers();
+                    })
+
+                        // if (!response.ok) {
+                        //     throw new HTTPError(`Fetch error: ${response.statusText}`);
+                        // } else {
+                        //     console.log('ada : ')
+                        // }
+
+                        // const dataProfile = await response.json()
+                        // console.log("dataProfile : ", dataProfile)
+
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success : ', data['education'])
+                            this.dataPrepare = data['education']
+                        });
+
+                    // this.dataPrepare = data['education']
+                    //     const dataEducation = data['education']
+                    // console.log(dataEducation)
+
                 })
             }
+            //         const response = await fetch('http://localhost:8000/api/resto', {
+            //             method: 'GET',
+            //             body: JSON.stringify(),
+            //             headers: {
+            //                 'content-type': 'application/json'
+            //             }
+            //         });
+
+            //         if(!response.ok) {
+            //             throw new HTTPError(`Fetch error: ${response.statusText}`);
+            //   }
+
+
+            //     const dataResto = await response.json();
+            //     console.log("dataRestoL : ", dataResto['data']);
+
 
         });
     </script>

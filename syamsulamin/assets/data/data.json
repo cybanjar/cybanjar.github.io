@@ -20,5 +20,28 @@
             "created_at": "2021-04-06T08:03:59.000000Z",
             "updated_at": "2021-04-06T08:23:37.000000Z"
         }
+    ],
+    "education": [
+        {
+            "id": 1,
+            "edu": "UPNV Jakarta",
+            "tahun": "2011 - 2015",
+            "jurusan": "computer science",
+            "detailed": ""
+        },
+        {
+            "id": 2,
+            "edu": "Webhozz ",
+            "tahun": "2019",
+            "jurusan": "Web Development",
+            "detailed": "PHP & MySQL"
+        },
+        {
+            "id": 3,
+            "edu": "Flutter Developer",
+            "tahun": "2021",
+            "jurusan": "Mobile Development",
+            "detailed": ""
+        }
     ]
 }
