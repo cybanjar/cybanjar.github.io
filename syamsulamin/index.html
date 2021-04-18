@@ -32,9 +32,9 @@
                     id="example-collapse-navbar">
                     <ul class="flex flex-col  rounded-xl lg:flex-row list-none lg:ml-auto">
                         <li class="flex items-center">
-                            <a class="lg:text-white lg:hover:text-gray-300 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                            <a class="lg:hover:text-gray-300 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                                 href="https://www.dribble.com/cybanjar/">
-                                <i class="text-linkedin fab fa-dribbble text-lg leading-lg "></i>
+                                <i class="text-dribbble fab fa-dribbble text-lg leading-lg "></i>
                                 <span class="lg:hidden inline-block ml-2">Dribbble</span>
                             </a>
                         </li>
@@ -305,7 +305,7 @@
                     </div>
                 </div>
             </section>
-            <section class="pt-20 pb-48">
+            <section class="py-8">
                 <div class="container mx-auto px-4">
                     <div class="flex flex-wrap justify-center text-center mb-24">
                         <div class="w-full lg:w-6/12 px-4">
@@ -333,6 +333,44 @@
                                         <div class="text-blue-500">Link</div>
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="text-gray-600 bg-gray-100 body-font overflow-hidden">
+                <div class="container px-8 py-8 mx-auto">
+                    <div class="flex flex-wrap justify-center text-center mb-8">
+                        <div class="w-full lg:w-6/12 px-4">
+                            <p class="font-bold  uppercase leading-relaxed m-4 text-primary">
+                                Experience
+                            </p>
+                            <h2 class="text-4xl font-semibold">Experience Details Makes Our Works Exellent<span
+                                    class="text-primary">.</span> </h2>
+
+                        </div>
+                    </div>
+                    <div v-for="(item, index) in dataPrepare['experience']" :key="index"
+                        class="-my-8 divide-y-2 divide-gray-100">
+                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                                <span class="font-semibold title-font uppercase text-gray-700">{{ item['job_position']
+                                    }}</span>
+                                <span class="mt-1 text-gray-500 text-sm">{{ item['period'] }}</span>
+                            </div>
+                            <div class="md:flex-grow">
+                                <h2 class="text-2xl font-medium text-gray-900 title-font">{{ item['company_name']
+                                    }} </h2>
+                                <p class="font-bold text-sm text-gray-300 mb-2 uppercase">{{ item['employe_status'] }}
+                                </p>
+                                <p class="leading-relaxed"> {{ item['description'] }}</p>
+                                <a class="text-indigo-500 inline-flex cursor-pointer items-center mt-4">View More
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
