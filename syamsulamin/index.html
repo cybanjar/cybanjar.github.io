@@ -268,7 +268,7 @@
                     </svg>
                 </div>
                 <div class="container mx-auto px-4">
-                    <div class="items-center flex flex-wrap">
+                    <div class="items-start flex flex-wrap">
                         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
                             <img alt="..." class="max-w-full rounded-lg shadow-lg" src="./assets/img/wisuda.jpg" />
                         </div>
@@ -281,7 +281,7 @@
                                     started faster. You can change the text and images and you're
                                     good to go.
                                 </p>
-                                <ul v-for="(item, index) in dataPrepare" class="list-none mt-6">
+                                <ul v-for="(item, index) in dataPrepare['education']" class="list-none mt-6">
                                     <li class="py-2">
                                         <div class="flex items-center">
                                             <div>
@@ -318,59 +318,19 @@
                         </div>
                     </div>
                     <div class="flex flex-wrap">
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                        <div v-for="(item, index) in dataPrepare['portfolio']" :key="index"
+                            class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
                             <div class="px-6">
-                                <img alt="..." src="./assets/img/laundry.jpg"
-                                    class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
-                                <div class="pt-6 text-center">
-                                    <h5 class="text-xl font-bold">Web Apps Laundry</h5>
-                                    <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                        Freelancer | 2016
+                                <img alt="..." :src="item['img']" class="shadow-lg rounded-md max-w-full mx-auto"
+                                    style="max-width: 120px;" />
+                                <div class="pt-2 mb-8 text-center">
+                                    <h5 class="text-xl font-bold"> {{ item['project'] }} </h5>
+                                    <p class="text-gray-300">{{ item['description'] }}</p>
+                                    <p class="mt-1 text-sm text-gray-300 uppercase font-semibold">
+                                        {{ item['version'] }} | <span class="text-pink-500">{{ item['tahun'] }}</span>
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div class="px-6">
-                                <img alt="..." src="./assets/img/compro_icwn.jpg"
-                                    class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
-                                <div class="pt-6 text-center">
-                                    <h5 class="text-xl font-bold">Web Company Profile</h5>
-                                    <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                        PT. ICWN
-                                    </p>
-                                    <a target="_blank" href="http://icwn.co.id">
-                                        <div class="text-indigo-400">Link</div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div class="px-6">
-                                <img alt="..." src="./assets/img/compro_icwn.jpg"
-                                    class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
-                                <div class="pt-6 text-center">
-                                    <h5 class="text-xl font-bold">Web Company Profile</h5>
-                                    <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                        PT. Gemilang Mahakarya Pratama
-                                    </p>
-                                    <a target="_blank" href="http://icwn.co.id">
-                                        <div class="text-indigo-400">Link</div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div class="px-6">
-                                <img alt="..." src="./assets/img/self_checkin.jpeg"
-                                    class="shadow-lg rounded-md max-w-full mx-auto" style="max-width: 120px;" />
-                                <div class="pt-6 text-center">
-                                    <h5 class="text-xl font-bold">Self Checkin</h5>
-                                    <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                        Web Designer
-                                    </p>
-                                    <a target="_blank" href="http://vhp-online.com">
-                                        <div class="text-indigo-400">Link</div>
+                                    <a target="_blank" :href="item['link']">
+                                        <div class="text-blue-500">Link</div>
                                     </a>
                                 </div>
                             </div>
@@ -399,11 +359,11 @@
                                 <ul class="list-unstyled">
                                     <li>
                                         <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                            href="https://www.creative-tim.com/presentation">About Us</a>
+                                            href="#">About Us</a>
                                     </li>
                                     <li>
                                         <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                            href="https://blog.creative-tim.com">Blog</a>
+                                            href="https://uidesignandcoding.wordpress.com">Blog</a>
                                     </li>
                                     <li>
                                         <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
@@ -474,7 +434,6 @@
             },
             mounted: function () {
                 this.$nextTick(function () {
-
                     fetch('./assets/data/data.json', {
                         method: 'GET',
                         body: JSON.stringify(),
@@ -482,45 +441,13 @@
                             'content-type': 'application/json'
                         }
                     })
-
-                        // if (!response.ok) {
-                        //     throw new HTTPError(`Fetch error: ${response.statusText}`);
-                        // } else {
-                        //     console.log('ada : ')
-                        // }
-
-                        // const dataProfile = await response.json()
-                        // console.log("dataProfile : ", dataProfile)
-
                         .then(response => response.json())
                         .then(data => {
-                            console.log('Success : ', data['education'])
-                            this.dataPrepare = data['education']
-                        });
-
-                    // this.dataPrepare = data['education']
-                    //     const dataEducation = data['education']
-                    // console.log(dataEducation)
-
+                            console.log('Success : ', data)
+                            this.dataPrepare = data
+                        })
                 })
             }
-            //         const response = await fetch('http://localhost:8000/api/resto', {
-            //             method: 'GET',
-            //             body: JSON.stringify(),
-            //             headers: {
-            //                 'content-type': 'application/json'
-            //             }
-            //         });
-
-            //         if(!response.ok) {
-            //             throw new HTTPError(`Fetch error: ${response.statusText}`);
-            //   }
-
-
-            //     const dataResto = await response.json();
-            //     console.log("dataRestoL : ", dataResto['data']);
-
-
         });
     </script>
 
