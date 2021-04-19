@@ -365,5 +365,71 @@
             "period": "2010 - 2011",
             "description": "Repair in of computer if it have problem, Shooting camera in wedding, party, ceremony, and ceminar, Then editor of shooting become a videos."
         }
+    ],
+    "skills": [
+        {
+            "id": 1,
+            "img": "assets/img/logo/css3.png"
+        },
+        {
+            "id": 2,
+            "img": "assets/img/logo/figma.png"
+        },
+        {
+            "id": 3,
+            "img": "assets/img/logo/flutter.png"
+        },
+        {
+            "id": 4,
+            "img": "assets/img/logo/github.png"
+        },
+        {
+            "id": 5,
+            "img": "assets/img/logo/gitlab.png"
+        },
+        {
+            "id": 6,
+            "img": "assets/img/logo/html5.png"
+        },
+        {
+            "id": 7,
+            "img": "assets/img/logo/js.png"
+        },
+        {
+            "id": 8,
+            "img": "assets/img/logo/laravel.png"
+        },
+        {
+            "id": 9,
+            "img": "assets/img/logo/mysql.png"
+        },
+        {
+            "id": 10,
+            "img": "assets/img/logo/php.svg"
+        },
+        {
+            "id": 11,
+            "img": "assets/img/logo/postman.png"
+        },
+        {
+            "id": 12,
+            "img": "assets/img/logo/sublimetext.png"
+        },
+        {
+            "id": 13,
+            "img": "assets/img/logo/vscode.png"
+        },
+        {
+            "id": 14,
+            "img": "assets/img/logo/vue.png"
+        },
+        {
+            "id": 15,
+            "img": "assets/img/logo/xd.png"
+        },
+        {
+            "id": 16,
+            "img": "assets/img/logo/quasar.png"
+        }
     ]
 }

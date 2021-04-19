@@ -382,44 +382,68 @@
                     </div>
                 </div>
             </section>
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-wrap justify-center text-center mb-8">
+                        <div class="w-full lg:w-6/12 px-4">
+                            <p class="font-bold  uppercase leading-relaxed m-4 text-primary">
+                                Skills
+                            </p>
+                            <h2 class="text-4xl font-semibold">Some of the tools, framework and expertise I have<span
+                                    class="text-primary">.</span> </h2>
+
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center -m-4">
+                        <div v-for="(item, index) in dataPrepare['skills']" class="p-4 md:w-1/6">
+                            <div class="flex rounded-lg hover:bg-gray-100 hover:shadow-xl py-4 px-8 flex-col">
+                                <div class="flex items-center justify-center">
+                                    <img :src="item['img']" class="h-16 w-auto" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
-        <footer class="relative bg-gray-300 pt-8 pb-6">
+        <footer class="relative m-6 rounded-xl bg-purple-500 text-gray-100 pt-8 pb-6">
             <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
                 style="height: 80px;">
             </div>
             <div class="container mx-auto px-4">
-                <div class="flex flex-wrap">
+                <div class="flex flex-wrap text-gray-200">
                     <div class="w-full lg:w-6/12 px-4">
                         <h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
-                        <h5 class="text-lg mt-0 mb-2 text-gray-700">
+                        <h5 class="text-lg mt-0 mb-2">
                             Find us on any of these platforms, we respond 1-2 business days.
                         </h5>
                     </div>
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="flex flex-wrap items-top mb-6">
                             <div class="w-full lg:w-4/12 px-4 ml-auto">
-                                <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful
+                                <span class="block uppercase text-gray-200 text-sm font-semibold mb-2">Useful
                                     Links</span>
-                                <ul class="list-unstyled">
+                                <ul class="list-unstyled text-gray-300">
                                     <li>
-                                        <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        <a class="hover:text-gray-900 font-semibold block pb-2 text-sm"
                                             href="#">About Us</a>
                                     </li>
                                     <li>
-                                        <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        <a class="hover:text-gray-900 font-semibold block pb-2 text-sm"
                                             href="https://uidesignandcoding.wordpress.com">Blog</a>
                                     </li>
                                     <li>
-                                        <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                            href="https://www.github.com/creativetimofficial">Github</a>
+                                        <a class="hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                            href="https://github.com/cybanjar/">Github</a>
                                     </li>
                                     <li>
-                                        <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                            href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+                                        <a class="hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                            href="https://www.creative-tim.com/bootstrap-themes/free">Channel
+                                            Youtube</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="w-full lg:w-4/12 px-4">
+                            <!-- <div class="w-full lg:w-4/12 px-4">
                                 <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other
                                     Resources</span>
                                 <ul class="list-unstyled">
@@ -441,17 +465,15 @@
                                             href="https://creative-tim.com/contact-us">Contact Us</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
                 <hr class="my-6 border-gray-400" />
                 <div class="flex flex-wrap items-center md:justify-between justify-center">
                     <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-                        <div class="text-sm text-gray-600 font-semibold py-1">
-                            Copyright © 2019 Tailwind Starter Kit by
-                            <a href="https://www.creative-tim.com" class="text-gray-600 hover:text-gray-900">Creative
-                                Tim</a>.
+                        <div class="text-sm text-gray-200 font-semibold py-1">
+                            Copyright &copy; Syamsul Amin
                         </div>
                     </div>
                 </div>
