@@ -2,7 +2,7 @@
     "portfolio": [
         {
             "id": 1,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/self_order.jpeg",
             "project": "Self Order Restaurant",
             "description": "Web responsive for booking food, beverage & dessert",
             "link": "#",
@@ -22,7 +22,7 @@
         },
         {
             "id": 3,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/xx_one_cinema.png",
             "project": "XX One Cinema",
             "description": "Cinema ticket booking simulation application using the flutter framework",
             "link": "https://github.com/cybanjar",
@@ -32,7 +32,7 @@
         },
         {
             "id": 4,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/self_checkin.jpeg",
             "project": "Self Checkin Hotel",
             "description": "Self checkin for hotel, precheckin - checkin",
             "link": "http://vhp-online.com",
@@ -62,7 +62,7 @@
         },
         {
             "id": 7,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/vhp_web.png",
             "project": "VHP Web",
             "description": "Visual Hotel Program for hotel",
             "link": "http://vue.e1-vhp.com:8080",
@@ -82,7 +82,7 @@
         },
         {
             "id": 9,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/newdb_setup.png",
             "project": "New DB Setup",
             "description": "For setup VHP Web",
             "link": "#",
@@ -92,7 +92,7 @@
         },
         {
             "id": 10,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/compro_icwn.jpg",
             "project": "Web PT. Indo Cahaya Wira Nusantara",
             "description": "Web company profile PT.ICWN",
             "link": "http://icwn.co.id",
@@ -102,7 +102,7 @@
         },
         {
             "id": 11,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/mahakarya_pratama.png",
             "project": "Web PT. Gemilang Mahakarya Pramata",
             "description": "Web company profile PT.GMP",
             "link": "http://mahakaryapratama.com",
@@ -132,7 +132,7 @@
         },
         {
             "id": 14,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/ubuntu_server.jpg",
             "project": "Build internal server",
             "description": "For HRM",
             "link": "#",
@@ -142,7 +142,7 @@
         },
         {
             "id": 15,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/ubuntu_server.jpg",
             "project": "Build Turnkey File Server",
             "description": "File server internal office",
             "link": "#",
@@ -257,7 +257,7 @@
     "experience": [
         {
             "id": 1,
-            "job_position": "Web Designer",
+            "job_position": "Frontend Developer",
             "company_name": "PT. Sindata",
             "organization_name": "Research & Development",
             "job_level": "Staff",
