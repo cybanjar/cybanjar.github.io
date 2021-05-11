@@ -327,7 +327,7 @@
                         <div v-for="(item, index) in dataPrepare['portfolio']" :key="index"
                             class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
                             <div class="px-6">
-                                <img alt="..." :src="item['img']" class="shadow-lg rounded-md max-w-full mx-auto"
+                                <img :src="item['img']" class="shadow-lg hover:rounded-xl rounded-md max-w-full mx-auto"
                                     style="max-width: 120px;" />
                                 <div class="pt-2 mb-8 text-center">
                                     <h5 class="text-xl font-bold"> {{ item['project'] }} </h5>

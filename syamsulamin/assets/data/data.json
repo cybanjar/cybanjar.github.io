@@ -1,6 +1,16 @@
 {
     "portfolio": [
         {
+            "id": 17,
+            "img": "assets/img/portfolio/vhp_biS.png",
+            "project": "VHP Business Intelligence",
+            "description": "Web business Intelligence",
+            "link": "#",
+            "tahun": "ongoing",
+            "backend": "Rest API DB Progress",
+            "version": "web"
+        },
+        {
             "id": 1,
             "img": "assets/img/portfolio/self_order.jpeg",
             "project": "Self Order Restaurant",
