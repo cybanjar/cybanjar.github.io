@@ -1,4 +1,4 @@
-html, body {
+html, body, p {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
@@ -20,9 +20,80 @@ html, body {
     color: #343a40;
 }
 
+.border-red{
+    border: solid 0.25px red;
+}
+
 .navbar {
-    display: flex;
     padding: 12px;
     background-color: #ffc107;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-between {
     justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.default-margin {
+    margin: 8px 16px 8px 16px;
+}
+
+.logo-soccer {
+    width: auto;
+    height: 50px;
+}
+
+.text-xs {
+    font-size: 10px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-md {
+    font-size: 18px;
+}
+
+.text-lg {
+    font-size: 24px;
+}
+
+.text-gray {
+    color: #a8a8a8;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-md {
+    margin: 16px 0 16px 0;
+}
+
+.text-red {
+    color: #f54748;
 }
