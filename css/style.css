@@ -23,14 +23,16 @@ html {
 	padding: 0;
 }
 
-body {
-	margin: 0;
+.main-container {
 	padding: 16rem;
 	background-image: url('../img/maintenance.svg');
 	background-repeat: no-repeat;
 	/* background-size: contain;
 	background-attachment: fixed; */
 	background-position: center;
+	height: 100vh;
+	width: 100vw;
+	/* background-color: red; */
 
 }
 
