@@ -15,14 +15,14 @@
             "img": "assets/img/portfolio/self_order.jpeg",
             "project": "Self Order Restaurant",
             "description": "Web responsive for booking food, beverage & dessert",
-            "link": "#",
+            "link": "http://www.vhp-online.com/",
             "tahun": "ongoing",
             "backend": "Rest API DB Progress",
             "version": "web"
         },
         {
             "id": 2,
-            "img": "https://source.unsplash.com/random/500x500",
+            "img": "assets/img/portfolio/akusara.jpeg",
             "project": "Web Akusara Law Office",
             "description": "Web company profile",
             "link": "http://akusaralawoffice.com",
@@ -52,7 +52,7 @@
         },
         {
             "id": 5,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/quran.PNG",
             "project": "Mengaji",
             "description": "Quran online",
             "link": "https://my-project-dumet.web.app",
@@ -62,7 +62,7 @@
         },
         {
             "id": 6,
-            "img": "https://source.unsplash.com/random/500x500",
+            "img": "assets/img/portfolio/weddings.PNG",
             "project": "Invite Wedding",
             "description": "Invitation wedding",
             "link": "https://wedding-vika.web.app/welcome-vika",
@@ -82,7 +82,7 @@
         },
         {
             "id": 8,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/helpdesk.PNG",
             "project": "Helpdesk",
             "description": "For helpdesk client request or bug fixing",
             "link": "http://devhdesk.e1-vhp.com",
@@ -132,7 +132,7 @@
         },
         {
             "id": 13,
-            "img": "assets/img/laundry.jpg",
+            "img": "assets/img/portfolio/hris.PNG",
             "project": "HR Management Orange HRM",
             "description": "Human Resource Management | failed project",
             "link": "#",
@@ -155,16 +155,6 @@
             "img": "assets/img/portfolio/ubuntu_server.jpg",
             "project": "Build Turnkey File Server",
             "description": "File server internal office",
-            "link": "#",
-            "tahun": "2017",
-            "backend": "",
-            "version": "Turnkey file server"
-        },
-        {
-            "id": 16,
-            "img": "assets/img/laundry.jpg",
-            "project": "e-arsip",
-            "description": "arsip letter out and in for goverment",
             "link": "#",
             "tahun": "2017",
             "backend": "",
