@@ -1,6 +1,16 @@
 {
     "portfolio": [
         {
+            "id": 18,
+            "img": "assets/img/portfolio/login-bg2.jpg",
+            "project": "e-Sign Digital",
+            "description": "Web apps e-sign Digital",
+            "link": "https://app.privy.id/",
+            "tahun": "2022",
+            "backend": "Rest API DB Progress",
+            "version": "web"
+        },
+        {
             "id": 17,
             "img": "assets/img/portfolio/vhp_biS.png",
             "project": "VHP Business Intelligence",
@@ -119,46 +129,6 @@
             "tahun": "2019",
             "backend": "",
             "version": "Web"
-        },
-        {
-            "id": 12,
-            "img": "assets/img/laundry.jpg",
-            "project": "Web Laundry",
-            "description": "Web application laundry",
-            "link": "#",
-            "tahun": "2018",
-            "backend": "PHP MYSQL",
-            "version": "Web"
-        },
-        {
-            "id": 13,
-            "img": "assets/img/portfolio/hris.PNG",
-            "project": "HR Management Orange HRM",
-            "description": "Human Resource Management | failed project",
-            "link": "#",
-            "tahun": "2018",
-            "backend": "PHP MYSQL",
-            "version": "Web"
-        },
-        {
-            "id": 14,
-            "img": "assets/img/portfolio/ubuntu_server.jpg",
-            "project": "Build internal server",
-            "description": "For HRM",
-            "link": "#",
-            "tahun": "2018",
-            "backend": "",
-            "version": "Ubuntu Server"
-        },
-        {
-            "id": 15,
-            "img": "assets/img/portfolio/ubuntu_server.jpg",
-            "project": "Build Turnkey File Server",
-            "description": "File server internal office",
-            "link": "#",
-            "tahun": "2017",
-            "backend": "",
-            "version": "Turnkey file server"
         }
     ],
     "education": [
@@ -256,13 +226,23 @@
     ],
     "experience": [
         {
+            "id": 20,
+            "job_position": "Frontend Engineer",
+            "company_name": "PT. Privy ID",
+            "organization_name": "Startup",
+            "job_level": "Staff",
+            "employe_status": "Permanent",
+            "period": "Dec 1, 2021 - Now",
+            "description": "Creating new features, bug, functionality and capabilities on the website using nuxt js, nuxt js, chart js, bootstrap-vue. Project Management Scrum master agile method."
+        },
+        {
             "id": 1,
             "job_position": "Frontend Developer",
             "company_name": "PT. Sindata",
             "organization_name": "Research & Development",
             "job_level": "Staff",
             "employe_status": "Permanent",
-            "period": "Oct 1, 2019 - Now",
+            "period": "Oct 1, 2019 - 1 Oct, 2021",
             "description": "Slicing from design to HTML using quasar framework (vue js), Development UI design, Web design, Alternative design for project Visual Hotel Program."
         },
         {
