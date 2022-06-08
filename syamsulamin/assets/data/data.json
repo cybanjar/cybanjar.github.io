@@ -410,6 +410,14 @@
         {
             "id": 16,
             "img": "assets/img/logo/quasar.png"
+        },
+        {
+            "id": 17,
+            "img": "assets/img/logo/nuxt.png"
+        },
+        {
+            "id": 18,
+            "img": "assets/img/logo/nodejs.png"
         }
     ]
 }
