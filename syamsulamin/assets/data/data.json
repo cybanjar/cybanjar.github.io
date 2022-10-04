@@ -1,6 +1,26 @@
 {
     "portfolio": [
         {
+            "id": 20,
+            "img": "assets/img/portfolio/digiexpert.svg",
+            "project": "Digiexpert",
+            "description": "Web Apps Digiexpert",
+            "link": "https://digiexpert.id/",
+            "tahun": "2022",
+            "backend": "Node Js",
+            "version": "web"
+        },
+        {
+            "id": 19,
+            "img": "assets/img/portfolio/digiexpert.svg",
+            "project": "CMS Digiexpert",
+            "description": "Web CMS Digiexpert",
+            "link": "https://cms.digiexpert.id/",
+            "tahun": "2022",
+            "backend": "Node Js",
+            "version": "web"
+        },
+        {
             "id": 18,
             "img": "assets/img/portfolio/login-bg2.jpg",
             "project": "e-Sign Digital",
@@ -31,16 +51,6 @@
             "version": "web"
         },
         {
-            "id": 2,
-            "img": "assets/img/portfolio/akusara.jpeg",
-            "project": "Web Akusara Law Office",
-            "description": "Web company profile",
-            "link": "http://akusaralawoffice.com",
-            "tahun": "2021",
-            "backend": "",
-            "version": "web"
-        },
-        {
             "id": 3,
             "img": "assets/img/portfolio/xx_one_cinema.png",
             "project": "XX One Cinema",
@@ -66,16 +76,6 @@
             "project": "Mengaji",
             "description": "Quran online",
             "link": "https://my-project-dumet.web.app",
-            "tahun": "2020",
-            "backend": "Firebase",
-            "version": "web"
-        },
-        {
-            "id": 6,
-            "img": "assets/img/portfolio/weddings.PNG",
-            "project": "Invite Wedding",
-            "description": "Invitation wedding",
-            "link": "https://wedding-vika.web.app/welcome-vika",
             "tahun": "2020",
             "backend": "Firebase",
             "version": "web"
