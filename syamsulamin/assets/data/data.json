@@ -384,16 +384,8 @@
             "img": "assets/img/logo/mysql.png"
         },
         {
-            "id": 10,
-            "img": "assets/img/logo/php.svg"
-        },
-        {
             "id": 11,
             "img": "assets/img/logo/postman.png"
-        },
-        {
-            "id": 12,
-            "img": "assets/img/logo/sublimetext.png"
         },
         {
             "id": 13,
@@ -418,6 +410,14 @@
         {
             "id": 18,
             "img": "assets/img/logo/nodejs.png"
+        },
+        {
+            "id": 19,
+            "img": "assets/img/logo/ionic.jpg"
+        },
+        {
+            "id": 20,
+            "img": "assets/img/logo/react.png"
         }
     ]
 }
