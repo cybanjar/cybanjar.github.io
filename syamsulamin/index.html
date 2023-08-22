@@ -456,7 +456,6 @@
             methods: {
                 notify: function () {
                     this.$q.notify('Running on Quasar v' + this.$q.version);
-                    console.log(this.$q.dark.mode)
                 }
             },
             mounted: function () {
@@ -470,7 +469,6 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-                            console.log('Success : ', data)
                             this.dataPrepare = data
                         })
                 })

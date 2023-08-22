@@ -226,14 +226,24 @@
     ],
     "experience": [
         {
-            "id": 20,
+            "id": 21,
             "job_position": "Frontend Engineer",
             "company_name": "PT. Privy ID",
             "organization_name": "Startup",
             "job_level": "Staff",
             "employe_status": "Permanent",
             "period": "Dec 1, 2021 - Now",
-            "description": "Creating new features, bug, functionality and capabilities on the website using nuxt js, nuxt js, chart js, bootstrap-vue. Project Management Scrum master agile method."
+            "description": "Development new features, bug fixing, functionality and capabilities on the website using nuxt js, vue js, chart js, tailwindcss, bootstrap-vue. Project Management Scrum master agile method."
+        },
+        {
+            "id": 20,
+            "job_position": "Frontend Developer",
+            "company_name": "PT. Arkadia Digital Media | suara.com",
+            "organization_name": "Media",
+            "job_level": "Staff",
+            "employe_status": "Contract",
+            "period": "Nov 1, 2021 - Dec 1, 2021",
+            "description": "Development web portal media, functionality and capabilities on the website using nuxt js. css native/ no framework css"
         },
         {
             "id": 1,
