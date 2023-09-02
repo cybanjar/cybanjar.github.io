@@ -1,6 +1,26 @@
 {
     "portfolio": [
         {
+            "id": 100,
+            "img": "assets/img/portfolio/login-bg2.jpg",
+            "project": "Digital Verification",
+            "description": "Internal tools web apps e-sign Digital",
+            "link": "https://adonara.privy.id/",
+            "tahun": "2022",
+            "backend": "Rest API",
+            "version": "web"
+        },
+        {
+            "id": 99,
+            "img": "assets/img/portfolio/login-bg2.jpg",
+            "project": "e-Sign Digital",
+            "description": "Web apps e-sign Digital",
+            "link": "https://app.privy.id/",
+            "tahun": "2022",
+            "backend": "Rest API DB Progress",
+            "version": "web"
+        },
+        {
             "id": 20,
             "img": "assets/img/portfolio/digiexpert.svg",
             "project": "Digiexpert",
@@ -21,22 +41,12 @@
             "version": "web"
         },
         {
-            "id": 18,
-            "img": "assets/img/portfolio/login-bg2.jpg",
-            "project": "e-Sign Digital",
-            "description": "Web apps e-sign Digital",
-            "link": "https://app.privy.id/",
-            "tahun": "2022",
-            "backend": "Rest API DB Progress",
-            "version": "web"
-        },
-        {
             "id": 17,
             "img": "assets/img/portfolio/vhp_biS.png",
             "project": "VHP Business Intelligence",
             "description": "Web business Intelligence",
-            "link": "#",
-            "tahun": "ongoing",
+            "link": null,
+            "tahun": "2022",
             "backend": "Rest API DB Progress",
             "version": "web"
         },
@@ -46,7 +56,7 @@
             "project": "Self Order Restaurant",
             "description": "Web responsive for booking food, beverage & dessert",
             "link": "http://www.vhp-online.com/",
-            "tahun": "ongoing",
+            "tahun": "2022",
             "backend": "Rest API DB Progress",
             "version": "web"
         },
@@ -55,7 +65,7 @@
             "img": "assets/img/portfolio/xx_one_cinema.png",
             "project": "XX One Cinema",
             "description": "Cinema ticket booking simulation application using the flutter framework",
-            "link": "https://github.com/cybanjar",
+            "link": null,
             "tahun": "2021",
             "backend": "Firebase",
             "version": "mobile android"
@@ -71,44 +81,14 @@
             "version": "web"
         },
         {
-            "id": 5,
-            "img": "assets/img/portfolio/quran.PNG",
-            "project": "Mengaji",
-            "description": "Quran online",
-            "link": "https://my-project-dumet.web.app",
-            "tahun": "2020",
-            "backend": "Firebase",
-            "version": "web"
-        },
-        {
             "id": 7,
             "img": "assets/img/portfolio/vhp_web.png",
             "project": "VHP Web",
             "description": "Visual Hotel Program for hotel",
-            "link": "http://vue.e1-vhp.com:8080",
+            "link": "https://e1-vhp.com",
             "tahun": "2020",
             "backend": "Rest API DB Progress",
             "version": "web"
-        },
-        {
-            "id": 8,
-            "img": "assets/img/portfolio/helpdesk.PNG",
-            "project": "Helpdesk",
-            "description": "For helpdesk client request or bug fixing",
-            "link": "http://devhdesk.e1-vhp.com",
-            "tahun": "2021",
-            "backend": "Rest API DB Progress",
-            "version": "web"
-        },
-        {
-            "id": 9,
-            "img": "assets/img/portfolio/newdb_setup.png",
-            "project": "New DB Setup",
-            "description": "For setup VHP Web",
-            "link": "#",
-            "tahun": "2020",
-            "backend": "",
-            "version": "UI Design figma"
         },
         {
             "id": 10,
@@ -118,16 +98,6 @@
             "link": "http://icwn.co.id",
             "tahun": "2019",
             "backend": "PHP",
-            "version": "Web"
-        },
-        {
-            "id": 11,
-            "img": "assets/img/portfolio/mahakarya_pratama.png",
-            "project": "Web PT. Gemilang Mahakarya Pramata",
-            "description": "Web company profile PT.GMP",
-            "link": "http://mahakaryapratama.com",
-            "tahun": "2019",
-            "backend": "",
             "version": "Web"
         }
     ],
