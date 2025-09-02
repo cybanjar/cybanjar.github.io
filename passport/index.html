@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Scanner - Vue 3.0</title>
+    
+    <!-- Adding all CDN dependencies for Vue 3.0 version -->
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- Tesseract.js -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+    
+    <style>
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Glass effect */
+        .bg-glass {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Custom animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+        createApp({
+            setup() {
+                const isProcessing = ref(false);
+                const processingStatus = ref('');
+                const progress = ref(0);
+                const passportData = ref(null);
+                const capturedImage = ref(null);
+                const rawMRZ = ref('');
+                const cameraActive = ref(false);
+                
+                const videoElement = ref(null);
+                const fileInput = ref(null);
+                let stream = null;
+
+                const startCamera = async () => {
+                    try {
+                        stream = await navigator.mediaDevices.getUserMedia({
+                            video: {
+                                facingMode: 'environment',
+                                width: { ideal: 1280 },
+                                height: { ideal: 720 }
+                            }
+                        });
+                        if (videoElement.value) {
+                            videoElement.value.srcObject = stream;
+                        }
+                        cameraActive.value = true;
+                    } catch (error) {
+                        console.error('Error accessing camera:', error);
+                        alert('Unable to access camera. Please check permissions.');
+                    }
+                };
+
+                const stopCamera = () => {
+                    if (stream) {
+                        stream.getTracks().forEach(track => track.stop());
+                        stream = null;
+                    }
+                    cameraActive.value = false;
+                };
+
+                const capturePhoto = () => {
+                    if (!videoElement.value) return;
+
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    const video = videoElement.value;
+
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    context?.drawImage(video, 0, 0);
+
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            const file = new File([blob], 'passport.jpg', { type: 'image/jpeg' });
+                            processImage(file);
+                        }
+                    }, 'image/jpeg', 0.9);
+
+                    stopCamera();
+                };
+
+                const handleFileSelect = (event) => {
+                    const file = event.target.files?.[0];
+                    if (file) {
+                        processImage(file);
+                    }
+                };
+
+                const processImage = async (file) => {
+                    isProcessing.value = true;
+                    progress.value = 0;
+                    processingStatus.value = 'Initializing OCR...';
+
+                    // Create image preview
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        capturedImage.value = e.target?.result;
+                    };
+                    reader.readAsDataURL(file);
+
+                    try {
+                        // Initialize Tesseract
+                        processingStatus.value = 'Loading OCR engine...';
+                        progress.value = 10;
+
+                        const worker = await Tesseract.createWorker('eng', 1, {
+                            logger: (m) => {
+                                if (m.status === 'recognizing text') {
+                                    progress.value = 20 + (m.progress * 60);
+                                    processingStatus.value = `Recognizing text... ${Math.round(m.progress * 100)}%`;
+                                }
+                            }
+                        });
+
+                        processingStatus.value = 'Processing image...';
+                        progress.value = 85;
+
+                        // Perform OCR
+                        const { data: { text } } = await worker.recognize(file);
+
+                        processingStatus.value = 'Parsing passport data...';
+                        progress.value = 95;
+
+                        // Parse MRZ data
+                        const parsedData = parseMRZ(text);
+
+                        rawMRZ.value = text;
+                        passportData.value = parsedData;
+                        progress.value = 100;
+
+                        await worker.terminate();
+
+                        setTimeout(() => {
+                            isProcessing.value = false;
+                        }, 500);
+                    } catch (error) {
+                        console.error('OCR Error:', error);
+                        alert('Error processing image. Please try again.');
+                        isProcessing.value = false;
+                    }
+                };
+
+                const parseMRZ = (text) => {
+                    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                    const data = {};
+
+                    // Look for MRZ patterns
+                    const mrzLines = lines.filter(line => 
+                        line.length >= 30 && 
+                        /^[A-Z0-9<]+$/.test(line) &&
+                        (line.startsWith('P<') || /^[A-Z0-9<]{9}[0-9]/.test(line))
+                    );
+
+                    if (mrzLines.length >= 2) {
+                        const line1 = mrzLines[0];
+                        const line2 = mrzLines[1];
+
+                        // Parse first line (document type, country, name)
+                        if (line1.startsWith('P<')) {
+                            data.documentType = 'Passport';
+                            data.countryCode = line1.substring(2, 5).replace(/</g, '');
+
+                            const namePart = line1.substring(5).replace(/</g, ' ').trim();
+                            const nameComponents = namePart.split('  ');
+                            if (nameComponents.length >= 2) {
+                                data.fullName = `${nameComponents[1]} ${nameComponents[0]}`.trim();
+                            } else {
+                                data.fullName = namePart;
+                            }
+                        }
+
+                        // Parse second line (passport number, nationality, dates, gender)
+                        if (line2.length >= 44) {
+                            data.passportNumber = line2.substring(0, 9).replace(/</g, '');
+                            data.nationality = line2.substring(10, 13).replace(/</g, '');
+
+                            // Parse dates (YYMMDD format)
+                            const dobStr = line2.substring(13, 19);
+                            const expiryStr = line2.substring(21, 27);
+                            const genderChar = line2.charAt(20);
+
+                            if (/^\d{6}$/.test(dobStr)) {
+                                const year = parseInt(dobStr.substring(0, 2));
+                                const month = dobStr.substring(2, 4);
+                                const day = dobStr.substring(4, 6);
+                                const fullYear = year > 50 ? 1900 + year : 2000 + year;
+                                data.dateOfBirth = `${day}/${month}/${fullYear}`;
+                            }
+
+                            if (/^\d{6}$/.test(expiryStr)) {
+                                const year = parseInt(expiryStr.substring(0, 2));
+                                const month = expiryStr.substring(2, 4);
+                                const day = expiryStr.substring(4, 6);
+                                const fullYear = year > 50 ? 1900 + year : 2000 + year;
+                                data.expiryDate = `${day}/${month}/${fullYear}`;
+                            }
+
+                            data.gender = genderChar === 'M' ? 'Male' : genderChar === 'F' ? 'Female' : 'Unknown';
+                        }
+                    } else {
+                        // Fallback: try to extract any readable information
+                        const passportMatch = text.match(/(?:Passport|PASSPORT)\s*(?:No\.?|Number)?\s*:?\s*([A-Z0-9]{6,12})/i);
+                        if (passportMatch) {
+                            data.passportNumber = passportMatch[1];
+                        }
+
+                        const nameMatch = text.match(/(?:Name|Given Names?|Surname)\s*:?\s*([A-Z\s]{2,50})/i);
+                        if (nameMatch) {
+                            data.fullName = nameMatch[1].trim();
+                        }
+
+                        const nationalityMatch = text.match(/(?:Nationality|Country)\s*:?\s*([A-Z]{2,20})/i);
+                        if (nationalityMatch) {
+                            data.nationality = nationalityMatch[1];
+                        }
+                    }
+
+                    return data;
+                };
+
+                const resetScanner = () => {
+                    passportData.value = null;
+                    capturedImage.value = null;
+                    rawMRZ.value = '';
+                    isProcessing.value = false;
+                    progress.value = 0;
+                    if (fileInput.value) {
+                        fileInput.value.value = '';
+                    }
+                };
+
+                onUnmounted(() => {
+                    stopCamera();
+                });
+
+                return {
+                    isProcessing,
+                    processingStatus,
+                    progress,
+                    passportData,
+                    capturedImage,
+                    rawMRZ,
+                    cameraActive,
+                    videoElement,
+                    fileInput,
+                    startCamera,
+                    stopCamera,
+                    capturePhoto,
+                    handleFileSelect,
+                    resetScanner
+                };
+            },
+            template: `
+                <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 font-poppins">
+                    <div class="container mx-auto px-4 py-8">
+                        <!-- Header -->
+                        <div class="text-center mb-8">
+                            <h1 class="text-4xl font-bold text-gray-800 mb-2">
+                                <i class="fas fa-passport mr-3 text-indigo-600"></i>
+                                Passport Scanner
+                            </h1>
+                            <p class="text-gray-600">Scan your passport quickly and accurately</p>
+                        </div>
+
+                        <!-- Main Content -->
+                        <div class="max-w-4xl mx-auto">
+                            <!-- Upload Section -->
+                            <div v-if="!isProcessing && !passportData" class="bg-glass rounded-2xl shadow-xl p-8 mb-6">
+                                <div class="text-center mb-6">
+                                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Choose Scanning Method</h2>
+                                </div>
+
+                                <!-- Camera Section -->
+                                <div class="mb-8">
+                                    <button 
+                                        @click="startCamera" 
+                                        :disabled="cameraActive"
+                                        class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        <i class="fas fa-camera mr-3"></i>
+                                        {{ cameraActive ? 'Camera Active' : 'Use Camera' }}
+                                    </button>
+                                </div>
+
+                                <!-- Camera Preview -->
+                                <div v-if="cameraActive" class="mb-6">
+                                    <div class="relative bg-black rounded-xl overflow-hidden">
+                                        <video ref="videoElement" autoplay playsinline class="w-full h-64 object-cover"></video>
+                                        <div class="absolute inset-0 border-4 border-dashed border-white opacity-50 m-8 rounded-lg"></div>
+                                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                            <button 
+                                                @click="capturePhoto"
+                                                class="bg-white text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                                            >
+                                                <i class="fas fa-camera mr-2"></i>Capture
+                                            </button>
+                                            <button 
+                                                @click="stopCamera"
+                                                class="bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-600 transition-colors"
+                                            >
+                                                <i class="fas fa-times mr-2"></i>Stop
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- File Upload -->
+                                <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-indigo-400 transition-colors">
+                                    <input 
+                                        type="file" 
+                                        ref="fileInput" 
+                                        @change="handleFileSelect" 
+                                        accept="image/*" 
+                                        class="hidden"
+                                    >
+                                    <div @click="$refs.fileInput.click()" class="cursor-pointer">
+                                        <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                        <p class="text-lg font-semibold text-gray-700 mb-2">Upload Passport Image__</p>
+                                        <p class="text-gray-500">Click here or drag and drop your passport image</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Processing Section -->
+                            <div v-if="isProcessing" class="bg-glass rounded-2xl shadow-xl p-8 mb-6">
+                                <div class="text-center">
+                                    <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Processing Passport...</h3>
+                                    <p class="text-gray-600 mb-4">{{ processingStatus }}</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-indigo-600 h-2 rounded-full transition-all duration-300" :style="{width: progress + '%'}"></div>
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-2">{{ progress }}% Complete</p>
+                                </div>
+                            </div>
+
+                            <!-- Results Section -->
+                            <div v-if="passportData && !isProcessing" class="bg-glass rounded-2xl shadow-xl p-8">
+                                <div class="flex justify-between items-center mb-6">
+                                    <h3 class="text-2xl font-semibold text-gray-800">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        Passport Data Extracted
+                                    </h3>
+                                    <button 
+                                        @click="resetScanner"
+                                        class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+                                    >
+                                        <i class="fas fa-redo mr-2"></i>Scan Again
+                                    </button>
+                                </div>
+
+                                <!-- Passport Image -->
+                                <div v-if="capturedImage" class="mb-6">
+                                    <img :src="capturedImage" alt="Captured Passport" class="w-full max-w-md mx-auto rounded-lg shadow-md">
+                                </div>
+
+                                <!-- Passport Information Grid -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Document Type</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.documentType || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Country Code</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.countryCode || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Passport Number</label>
+                                            <p class="text-lg text-gray-800 font-mono">{{ passportData.passportNumber || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Nationality</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.nationality || 'N/A' }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Full Name</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.fullName || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Date of Birth</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.dateOfBirth || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Gender</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.gender || 'N/A' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <label class="block text-sm font-semibold text-gray-600 mb-1">Expiry Date</label>
+                                            <p class="text-lg text-gray-800">{{ passportData.expiryDate || 'N/A' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Raw MRZ Data -->
+                                <div v-if="rawMRZ" class="mt-6 bg-gray-50 p-4 rounded-lg">
+                                    <label class="block text-sm font-semibold text-gray-600 mb-2">Raw MRZ Data</label>
+                                    <pre class="text-sm text-gray-700 font-mono whitespace-pre-wrap">{{ rawMRZ }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }).mount('#app');
+    </script>
+</body>
+</html>
